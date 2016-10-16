@@ -1,0 +1,2 @@
+# prime
+Calculate prime numbers

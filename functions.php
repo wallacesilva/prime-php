@@ -11,8 +11,10 @@ function prime_last_digits($max=1000)
     $counter_2 = 0; // one time
     $counter_5 = 0; // one time
 
+    $started_at_time = time();
     echo 'Max number: '.$max.PHP_EOL;
     echo 'Calculating ...'.PHP_EOL;
+    echo 'Started at '.date('d/m/Y H:i:s', $started_at_time).PHP_EOL;
 
     while ($prime_start <= $max) {
         
@@ -33,5 +35,12 @@ function prime_last_digits($max=1000)
     echo 'Total 3: '.$counter_3.'/'.number_format($counter_3 / $counter * 100, 3).'%'.PHP_EOL;
     echo 'Total 7: '.$counter_7.'/'.number_format($counter_7 / $counter * 100, 3).'%'.PHP_EOL;
     echo 'Total 9: '.$counter_9.'/'.number_format($counter_9 / $counter * 100, 3).'%'.PHP_EOL;
-    echo 'Finished at '.date('d/m/Y H:i:s').PHP_EOL;
+    $finished_at_time = time();
+    echo 'Finished at '.date('d/m/Y H:i:s', $finished_at_time).PHP_EOL;
+    $seconds = $finished_at_time - $started_at_time;
+    $h = floor($seconds / 3600); 
+    $m = floor(($seconds % 3600) / 60); 
+    $s = $seconds - ($h * 3600) - ($m * 60); 
+    $string_duration = sprintf('%02d:%02d:%02d', $h, $m, $s); 
+    echo 'Duration '.$string_duration.PHP_EOL;
 }
